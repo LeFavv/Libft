@@ -4,6 +4,7 @@
 // difficultés a appeller mes fonctions dans d'autres fonctions meme en include bien le libft.h
 #include <stddef.h>
 
+//partie 1
 int ft_isalnum(int c);
 int atoi(const char *str);
 int ft_isalpha(int c);
@@ -22,6 +23,9 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len);
 char *ft_strrchr(const char *s, int c);
 int ft_tolower(int character);
 int ft_toupper( int character );
+void *ft_calloc(size_t count, size_t size);
+
+//partie 2
 char *ft_substr(char const *s, unsigned int start, size_t len);
 char *ft_strjoin(char const *s1, char const *s2);
 char **ft_split(char const *s, char c);
