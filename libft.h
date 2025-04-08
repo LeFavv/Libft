@@ -24,6 +24,8 @@ char *ft_strrchr(const char *s, int c);
 int ft_tolower(int character);
 int ft_toupper( int character );
 void *ft_calloc(size_t count, size_t size);
+void *ft_memmove(void *dst, const void *src, size_t len);
+
 
 //partie 2
 char *ft_substr(char const *s, unsigned int start, size_t len);
