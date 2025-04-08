@@ -1,7 +1,9 @@
 #ifndef LIBFT_H
 #define LIBFT_H
 // gerer le stddef voir si on y a droit ou non
+// probablement que non donc a voir par la suite 
 // difficultés a appeller mes fonctions dans d'autres fonctions meme en include bien le libft.h
+//+ rienj n'est normé surtout au niveau des tab
 #include <stddef.h>
 
 //partie 1
@@ -25,6 +27,7 @@ int ft_tolower(int character);
 int ft_toupper( int character );
 void *ft_calloc(size_t count, size_t size);
 void *ft_memmove(void *dst, const void *src, size_t len);
+size_t  strlcpy(char * restrict dst, const char * restrict src, size_t dstsize);
 
 
 //partie 2
