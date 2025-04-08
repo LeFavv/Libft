@@ -28,6 +28,7 @@ int ft_toupper( int character );
 void *ft_calloc(size_t count, size_t size);
 void *ft_memmove(void *dst, const void *src, size_t len);
 size_t  strlcpy(char * restrict dst, const char * restrict src, size_t dstsize);
+size_t strlcat(char * restrict dst, const char * restrict src, size_t dstsize);
 
 
 //partie 2
