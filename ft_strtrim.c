@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdlib.h>
 
 int search_start(char const *s1, char const *set)
 {
@@ -85,15 +84,15 @@ char *ft_strtrim(char const *s1, char const *set)
     return (res);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main(int argc, char **argv)
-{
-    if (argc == 3)
-    {
-        char *res = ft_strtrim(argv[1], argv[2]);
-        printf("%s\n", res);
-        free(res);
-    }
-    return (0);
-}
+// int main(int argc, char **argv)
+// {
+//     if (argc == 3)
+//     {
+//         char *res = ft_strtrim(argv[1], argv[2]);
+//         printf("%s\n", res);
+//         free(res);
+//     }
+//     return (0);
+// }

@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdlib.h>
 
 int ft_char_is_sep(char i, char c);
 int ft_count_word(char const *s, char c);
@@ -86,19 +85,19 @@ char **ft_split(char const *s, char c)
     return (tab);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
 
-int main(void)
-{
-    char *test = "salut a tous";
-    char c = ' ';
-    char **tab = ft_split(test, c);
-    int i = 0;
-    while (tab[i])
-        printf("%s\n", tab[i++]);
-    ft_free_all(tab, i);
-    free(tab);
+// int main(void)
+// {
+//     char *test = "salut a tous";
+//     char c = ' ';
+//     char **tab = ft_split(test, c);
+//     int i = 0;
+//     while (tab[i])
+//         printf("%s\n", tab[i++]);
+//     ft_free_all(tab, i);
+//     free(tab);
 
-    return (0);
-} 
+//     return (0);
+// } 

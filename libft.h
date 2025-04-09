@@ -1,10 +1,8 @@
 #ifndef LIBFT_H
 #define LIBFT_H
-// gerer le stddef voir si on y a droit ou non
-// probablement que non donc a voir par la suite 
-// difficultés a appeller mes fonctions dans d'autres fonctions meme en include bien le libft.h
-//+ rienj n'est normé surtout au niveau des tab
-#include <stddef.h>
+
+#include <stdlib.h>
+#include <unistd.h>
 
 //partie 1
 int ft_isalnum(int c);

@@ -1,9 +1,5 @@
 #include "libft.h"
-#include <stdlib.h>
-#include <stddef.h>
 
-//regler la taille de la fonction ft_itoa et faire plus de tests et c'est good
-//ajouter au .h
 size_t ft_strlen(const char *s)
 {
     size_t i;
@@ -85,12 +81,12 @@ char *ft_itoa(int n)
     rev_str(res);
     return (res);
 }
-#include <stdio.h>
+// #include <stdio.h>
 
-int main(void)
-{
-    char *res = ft_itoa(-42);
-    printf("%s\n", res);
-    free(res);
-    return (0);
-}
+// int main(void)
+// {
+//     char *res = ft_itoa(-42);
+//     printf("%s\n", res);
+//     free(res);
+//     return (0);
+// }

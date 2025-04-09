@@ -1,10 +1,4 @@
 #include "libft.h"
-#include <unistd.h>
-
-void ft_putchar_fd(char c, int fd)
-{
-    write (fd, &c, 1);
-}
 
 void ft_putnbr_fd(int n, int fd)
 {
@@ -20,15 +14,15 @@ void ft_putnbr_fd(int n, int fd)
       ft_putnbr_fd(nb / 10, fd);
     ft_putchar_fd(nb % 10 + '0', fd);
 }
-#include <limits.h>
+// #include <limits.h>
 
-int main(void)
-{
-    ft_putnbr_fd(INT_MIN, 1);
-    write (1, "\n", 1);
-    ft_putnbr_fd(INT_MAX, 1);
-    write (1, "\n", 1);
-    ft_putnbr_fd(42, 1);
-    write (1, "\n", 1);
-    return 0;
-}
+// int main(void)
+// {
+//     ft_putnbr_fd(INT_MIN, 1);
+//     write (1, "\n", 1);
+//     ft_putnbr_fd(INT_MAX, 1);
+//     write (1, "\n", 1);
+//     ft_putnbr_fd(42, 1);
+//     write (1, "\n", 1);
+//     return 0;
+// }
