@@ -42,4 +42,22 @@ char *ft_itoa(int n);
 void ft_striteri(char *s, void (*f)(unsigned int, char*));
 char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
+//partie BONUS
+typedef struct s_list
+{
+void *content;
+struct s_list *next;
+} t_list;
+
+t_list *ft_lstnew(void *content); //fait mais a tester
+void ft_lstadd_front(t_list **lst, t_list *new); //same
+int ft_lstsize(t_list *lst); // m'a semble + simple que les deux precendents mais a revoir
+t_list *ft_lstlast(t_list *lst); //fait rapidement sans regarder le travail precendent, a l'aise mais pas sur pour autant
+void ft_lstadd_back(t_list **lst, t_list *new); //a revoir tout commence a devenir un peu plus clair
+void ft_lstdelone(t_list *lst, void (*del)(void*));
+void ft_lstclear(t_list **lst, void (*del)(void*));
+void ft_lstiter(t_list *lst, void (*f)(void *));
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *));
+
+
 #endif
