@@ -1,3 +1,10 @@
+NAME = libft.a
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -I.
+RM = rm -f
+AR = ar
+ARFLAGS = rcs
+HEADER = libft.h
 SRCS	= 	ft_bzero.c ft_isascii.c  ft_itoa.c ft_memcpy.c ft_putchar_fd.c ft_putstr_fd.c \
 		ft_strdup.c ft_strlcpy.c ft_strnstr.c ft_substr.c ft_alnum.c ft_calloc.c \
 		ft_isdigit.c ft_memchr.c ft_memmove.c ft_putendl_fd.c ft_split.c   ft_strjoin.c \
@@ -5,26 +12,32 @@ SRCS	= 	ft_bzero.c ft_isascii.c  ft_itoa.c ft_memcpy.c ft_putchar_fd.c ft_putstr
 		ft_memcmp.c ft_memset.c ft_putnbr_fd.c  ft_strchr.c ft_strlcat.c ft_strncmp.c \
 		ft_strmapi.c ft_striteri.c
 
+SRCS.BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
+			 ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+			 ft_lstclear_bonus.c ft_lstiter_bonus.c
+
 OBJS = $(SRCS:.c=.o)
 
-CC = gcc
+OBJS.BONUS = $(SRCS.BONUS:.c=.o)
 
-RM = rm -f
-
-CFLAGS = -Wall -Wextra -Werror -I.
-
-NAME = libft.a
+.PHONY: all clean fclean re bonus
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
+			$(AR) $(ARFLAGS) $@ $^
+
+%.o: %.c $(HEADER)
+			$(CC) $(CFLAGS) -I. -c $< -o $@
+
+bonus: $(OBJECTS) $(OBJS.BONUS)
+		$(AR) $(ARFLAGS) $(NAME) $(OBJS.BONUS)
 
 clean: 
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(OBJS.BONUS)
 
 fclean: clean
-	$(RM) $(NAME)
+		$(RM) $(NAME)
 
-re: fclean $(NAME)
-
-.PHONY: all clean fclean re
+re: fclean 
+		$(NAME)
