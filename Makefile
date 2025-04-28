@@ -20,8 +20,6 @@ OBJS = $(SRCS:.c=.o)
 
 OBJS.BONUS = $(SRCS.BONUS:.c=.o)
 
-.PHONY: all clean fclean re bonus
-
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -41,3 +39,5 @@ fclean: clean
 
 re: fclean 
 		$(NAME)
+
+.PHONY: all clean fclean re bonus #Pour ne pas prednre en considaration tous les fichiers qui portent ce nom

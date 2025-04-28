@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:44:39 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/25 13:44:39 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/28 09:10:08 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 void ft_putstr_fd(char *s, int fd)
 {
     unsigned int i;
-
+    
+    if (!s || !(fd >= 1))
+		return;
     i = 0;
     while (s[i])
     {
