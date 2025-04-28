@@ -6,21 +6,21 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:44:58 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/25 13:44:58 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/28 14:12:06 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-    unsigned int i;
+	unsigned int	i;
 
-    i = 0;
-    if (!(!f || !s))
-    {
-        while (s[i])
-        {
-            f(i, &s[i]);
-            i++;
-        }
-    }
+	i = 0;
+	if (!(!f || !s))
+	{
+		while (s[i])
+		{
+			f(i, &s[i]);
+			i++;
+		}
+	}
 }

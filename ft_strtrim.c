@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:45:37 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/25 13:45:37 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/28 14:18:51 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	search_start(char const *s1, char const *set)
 	int	i;
 	int	j;
 	int	count;
-	
+
 	i = 0;
 	while (s1[i])
 	{
@@ -58,7 +58,7 @@ int	search_end(char const *s1, char const *set)
 			{
 				count++;
 			}
-		j++;
+			j++;
 		}
 		if (count == 0)
 			return (i);
@@ -69,15 +69,15 @@ int	search_end(char const *s1, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	if (!s1)
-		return (NULL);
-	if (!set)
-		return ((char *)s1);
 	char	*res;
 	int		start;
 	int		i;
 	int		end;
 
+	if (!s1)
+		return (NULL);
+	if (!set)
+		return ((char *)s1);
 	start = search_start(s1, set);
 	end = search_end(s1, set);
 	i = 0;
@@ -85,7 +85,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	{
 		res = malloc(1);
 		res[0] = 0;
-		return res;
+		return (res);
 	}
 	res = malloc(sizeof(char) * ((end - start + 1) + 1));
 	if (!res)
@@ -100,11 +100,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int main(int argc, char **argv)
 {
-     if (argc == 3)
-     {
-         char *res = ft_strtrim(argv[1], argv[2]);
-         printf("%s\n", res);
-         free(res);
-     }
-     return (0);
+	 if (argc == 3)
+	 {
+		 char *res = ft_strtrim(argv[1], argv[2]);
+		 printf("%s\n", res);
+		 free(res);
+	 }
+	 return (0);
  }*/

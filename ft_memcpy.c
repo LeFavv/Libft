@@ -6,23 +6,23 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:44:09 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/25 13:44:10 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/28 13:55:33 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-    size_t  i;
+	size_t	i;
 
-    i = 0;
-    while ((*(char *)(dst)) && (*(char *)(src)) && i < n)
-    {
-        (*(char *)(dst + i)) = (*(char *)(src + i));
-        i++;
-    }
-    return ((void*)dst);
+	i = 0;
+	while ((*(char *)(dst)) && (*(char *)(src)) && i < n)
+	{
+		(*(char *)(dst + i)) = (*(char *)(src + i));
+		i++;
+	}
+	return ((void *)dst);
 }
 // #include <stdio.h>
 // #include <string.h>

@@ -6,100 +6,105 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:44:45 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/25 13:44:46 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/28 16:42:19 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_char_is_sep(char i, char c);
-int ft_count_word(char const *s, char c);
-char *ft_malloc(char const *s, int start, int end);
-char **ft_split(char const *s, char c);
-void ft_free_all(char **tab, int last);
+int		ft_char_is_sep(char i, char c);
+int		ft_count_word(char const *s, char c);
+char	*ft_malloc(char const *s, int start, int end);
+char	**ft_split(char const *s, char c);
+void	ft_free_all(char **tab, int last);
 
-
-int ft_char_is_sep(char i, char c)
+int	ft_char_is_sep(char i, char c)
 {
-     if (i == c)
-            return 1;
-    if (i == '\0')
-        return 1;
-    return 0;
+	if (i == c)
+		return (1);
+	if (i == '\0')
+		return (1);
+	return (0);
 }
 
-int  ft_count_word(char const *s, char c)
+int	ft_count_word(char const *s, char c)
 {
-    int i = 0;
-    int word = 0;
-    while (s[i])
-    {
-        if ((ft_char_is_sep(s[i + 1], c) == 1)
-                && (ft_char_is_sep(s[i], c) == 0))
-                word++;
-        i++;
-    }
-    return word;
-}
-void ft_free_all(char **tab, int last)
-{
-    int i = 0;
+	int	i;
+	int	word;
 
-    while (i < last)
-    {
-        free(tab[i]);
-        i++;
-    }
-    return;
-}
-char *ft_malloc(char const *s, int start, int end)
-{
-    int range = end - start;
-    int i = 0;
-    char *res;
-
-    res = malloc(sizeof(char) * (range + 1));
-    if (!res)
-        return NULL;
-    while (i < range)
-    {
-        res[i] = s[start + i];
-        i++;
-    }
-    res[i] = '\0';
-    return res;
+	i = 0;
+	word = 0;
+	while (s[i])
+	{
+		if ((ft_char_is_sep(s[i + 1], c) == 1)
+			&& (ft_char_is_sep(s[i], c) == 0))
+			word++;
+		i++;
+	}
+	return (word);
 }
 
-char **ft_split(char const *s, char c)
+void	ft_free_all(char **tab, int last)
 {
-    int i_tab = 0;
-    int start;
-    char **tab = malloc(sizeof(char *) * (ft_count_word(s, c) + 1));
-    if (!tab)
-        return NULL;
-    int i = 0;
-    while (s[i])
-    {
-        while (s[i] && ft_char_is_sep(s[i], c))
-            i++;
-        start = i;
-        while (s[i] && !ft_char_is_sep(s[i], c))
-            i++;
-        tab[i_tab] = ft_malloc(s, start, i);
-        if (!tab[i_tab])
-        {
-            ft_free_all(tab, i_tab);
-            return (NULL);
-        }
-        i_tab++;
-    }
-    tab[i_tab] = NULL;
-    return (tab);
+	int	i;
+
+	i = 0;
+	while (i < last)
+	{
+		free(tab[i]);
+		i++;
+	}
+	return ;
+}
+
+char	*ft_malloc(char const *s, int start, int end)
+{
+	int		range;
+	int		i;
+	char	*res;
+
+	range = end - start;
+	i = 0;
+	res = malloc(sizeof(char) * (range + 1));
+	if (!res)
+		return (NULL);
+	while (i < range)
+	{
+		res[i] = s[start + i];
+		i++;
+	}
+	res[i] = '\0';
+	return (res);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		i_tab;
+	int		start;
+	char	**tab;
+	int		i;
+
+	tab = malloc(sizeof(char *) * (ft_count_word(s, c) + 1));
+	i_tab = 0;
+	if (!tab)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		while (s[i] && ft_char_is_sep(s[i], c))
+			i++;
+		start = i;
+		while (s[i] && !ft_char_is_sep(s[i], c))
+			i++;
+		tab[i_tab] = ft_malloc(s, start, i);
+		if (!tab[i_tab])
+			return (ft_free_all(tab, i_tab), NULL);
+		i_tab++;
+	}
+	return (tab[i_tab] = NULL, tab);
 }
 
 // #include <stdio.h>
-
-
 // int main(void)
 // {
 //     char *test = "salut a tous";

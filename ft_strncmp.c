@@ -6,20 +6,20 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:45:26 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/25 13:45:26 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/28 14:16:14 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (s1[i] && s2[i] && s1[i] == s2[i] && (size_t)i < n)
-        i++;
-    return (s1[i] - s2[i]);
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i] && (size_t)i < n)
+		i++;
+	return (s1[i] - s2[i]);
 }
 // #include <stdio.h>
 // #include <stdlib.h>
@@ -28,8 +28,7 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
 // {
 //     if (argc == 4)
 //     {
-//         int result;
-        
+//         int result;	
 //         result = ft_strncmp(argv[1], argv[2], atoi(argv[3]));
 //         printf("%d\n", result);
 //     }

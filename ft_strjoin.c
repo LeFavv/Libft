@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:45:02 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/25 13:45:03 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/28 14:12:37 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 int main(int argc, char **argv)
 {
-     if (argc == 3)
-     {
-         char *dest;
-         dest = ft_strjoin(argv[1], argv[2]);
-         printf("%s\n", dest);
-         free(dest);
-     }
-     return (0);
+	 if (argc == 3)
+	 {
+		 char *dest;
+		 dest = ft_strjoin(argv[1], argv[2]);
+		 printf("%s\n", dest);
+		 free(dest);
+	 }
+	 return (0);
 }*/

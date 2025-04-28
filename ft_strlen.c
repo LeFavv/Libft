@@ -6,20 +6,20 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:45:14 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/25 13:45:14 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/28 14:14:48 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-    size_t i;
+	size_t	i;
 
-    i = 0;
-    if (!*s || !s[i])
-        return (0);
-    while (s[i])
-        i++;
-    return (i);
+	i = 0;
+	if (!*s || !s[i])
+		return (0);
+	while (s[i])
+		i++;
+	return (i);
 }

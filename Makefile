@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/04/28 16:41:23 by vafavard          #+#    #+#              #
+#    Updated: 2025/04/28 16:41:25 by vafavard         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I.
@@ -37,7 +49,6 @@ clean:
 fclean: clean
 		$(RM) $(NAME)
 
-re: fclean 
-		$(NAME)
+re: fclean all
 
 .PHONY: all clean fclean re bonus #Pour ne pas prednre en considaration tous les fichiers qui portent ce nom
