@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:45:33 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/28 19:36:37 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/29 20:48:09 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,24 @@ char	*ft_strrchr(const char *s, int c)
 {
 	size_t	len;
 
-	len = ft_strlen(s) + 1;
-	while (len--)
+	if (!s)
+		return (NULL);
+
+	len = ft_strlen(s);
+	while (len > 0)
 	{
 		if (s[len] == (char)c)
 			return ((char *)&s[len]);
+		len--;
 	}
+	if (s[0] == (char)c)
+		return ((char *)&s[0]);
+
 	return (NULL);
 }
+
+
+
 // #include <stdio.h>
 // #include <string.h>
 

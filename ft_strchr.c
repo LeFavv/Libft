@@ -6,29 +6,29 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:44:50 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/28 19:41:45 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/29 21:07:29 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memmove(void *dest, const void *src, size_t length)
 {
-	size_t	len;
-	size_t	i;
-
-
-	i = 0;
-	len = ft_strlen(s) + 1;
-	while (i < len)
+	if (!((char *)dest) && !((char *)src))
+		return (0);
+	if (dest > src)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i++;
+		while (length > 0)
+		{
+			((char *)dest)[length - 1] = ((char *)src)[length - 1];
+			length--;
+		}
 	}
-	return (NULL);
+	else
+		ft_memcpy(((char *)dest), ((char *)src), length);
+	return (((char *)dest));
 }
-// #include <string.h>
+	// #include <string.h>
 // #include <stdio.h>
 
 // int main(void)
