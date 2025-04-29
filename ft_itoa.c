@@ -6,23 +6,11 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:43:31 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/28 13:36:56 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/28 21:53:13 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	if (!*s || !s[i])
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
-}
 
 int	len_to_malloc(int nb)
 {
@@ -36,6 +24,8 @@ int	len_to_malloc(int nb)
 		lenght++;
 		nb2 *= -1;
 	}
+	if (nb2 == 0)
+		lenght++;
 	while (nb2)
 	{
 		nb2 /= 10;
@@ -59,9 +49,6 @@ char	*rev_str(char *str)
 		str[size - i - 1] = temp;
 		i++;
 	}
-	while (str[i])
-		i++;
-	str[i] = 0;
 	return (str);
 }
 
@@ -79,26 +66,33 @@ char	*ft_itoa(int n)
 	if (nb2 < 0)
 		nb2 *= -1;
 	if (nb2 == 0)
-	{
-		res[i] = '0';
-		res[i + 1] = '\0';
-		return (res);
-	}
+		res[i++] = '0';
 	while (nb2)
 	{
 		res[i++] = nb2 % 10 + '0';
 		nb2 /= 10;
 	}
 	if (n < 0)
-		res[i] = '-';
+		res[i++] = '-';
+	res[i] = '\0';
 	return (rev_str(res));
 }
 // #include <stdio.h>
 
 // int main(void)
 // {
-//     char *res = ft_itoa(-42);
+//     char *res = ft_itoa(123456789);
+// 	char *res2 = ft_itoa(-1234);
+// 	char *res3 = ft_itoa(0);
+// 	char *res4 = ft_itoa(-2147483648);
+
 //     printf("%s\n", res);
+// 	printf("%s\n", res2);
+// 	printf("%s\n", res3);
+// 	printf("%s\n", res4);
 //     free(res);
+// 	free(res2);
+// 	free(res3);
+// 	free(res4);
 //     return (0);
 // }

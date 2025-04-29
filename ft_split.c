@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:44:45 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/28 16:42:19 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/29 11:03:21 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ int	ft_count_word(char const *s, char c)
 	word = 0;
 	while (s[i])
 	{
-		if ((ft_char_is_sep(s[i + 1], c) == 1)
-			&& (ft_char_is_sep(s[i], c) == 0))
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
 			word++;
 		i++;
 	}
@@ -50,10 +49,8 @@ void	ft_free_all(char **tab, int last)
 
 	i = 0;
 	while (i < last)
-	{
-		free(tab[i]);
-		i++;
-	}
+		free(tab[i++]);
+	free(tab);
 	return ;
 }
 
@@ -84,6 +81,8 @@ char	**ft_split(char const *s, char c)
 	char	**tab;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	tab = malloc(sizeof(char *) * (ft_count_word(s, c) + 1));
 	i_tab = 0;
 	if (!tab)

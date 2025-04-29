@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:45:37 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/28 14:18:51 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/29 13:51:44 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,20 +91,20 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!res)
 		return (NULL);
 	while (i < (end - start + 1))
-		res[i] = s1[start + i++];
+		res[i] = s1[start + i], i++;
 	res[i] = 0;
 	return (res);
 }
-/*
-#include <stdio.h>
 
-int main(int argc, char **argv)
-{
-	 if (argc == 3)
-	 {
-		 char *res = ft_strtrim(argv[1], argv[2]);
-		 printf("%s\n", res);
-		 free(res);
-	 }
-	 return (0);
- }*/
+// #include <stdio.h>
+
+// int main(int argc, char **argv)
+// {
+// 	 if (argc == 3)
+// 	 {
+// 		 char *res = ft_strtrim(argv[1], argv[2]);
+// 		 printf("%s\n", res);
+// 		 free(res);
+// 	 }
+// 	 return (0);
+//  }

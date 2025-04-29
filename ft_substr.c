@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:45:41 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/28 14:19:33 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/29 10:07:39 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,38 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
-	char	*dest;
-	int		len_to_malloc;
+	size_t		i;
+	char		*dest;
+	size_t		len_to_malloc;
 
 	i = 0;
-	while (s[i])
-		i++;
-	len_to_malloc = (i - start);
-	if ((int)len >= len_to_malloc)
+	if (!s)
+		return (NULL);
+	len_to_malloc = (ft_strlen(s) - start);
+	if (start >= ft_strlen(s))
+	{
+		dest = malloc(sizeof(char) * 1);
+		if (!dest)
+			return (NULL);
+		return (dest[0] = '\0', dest);
+	}
+	if (len >= len_to_malloc)
 		dest = malloc(sizeof(char) * (len_to_malloc + 1));
 	else
 		dest = malloc(sizeof(char) * (len + 1));
 	if (!dest)
 		return (NULL);
 	i = 0;
-	while (s[start + 1])
-	{
-		dest[i] = s[start + i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	while (s[start + i] && (i < len))
+		dest[i] = s[start + i], i++;
+	return (dest[i] = '\0', dest);
 }
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	char	*test = "leo le boss";
+// 	char	*result = ft_substr(test, 4, 5);
+// 	printf("%s\n", result);
+// 	free(result);
+// 	return (0);
+// }

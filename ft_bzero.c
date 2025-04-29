@@ -6,23 +6,14 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:42:54 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/25 13:42:57 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/29 11:15:26 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	bzero(void *s, size_t n)
+void    ft_bzero(void *s, size_t n)
 {
-	size_t	i;
-
-	i = 0;
-	if (n == 0)
-		return ;
-	while (i < n)
-	{
-		((char *)s)[i] = 0;
-		i++;
-	}
-	return ;
+    while (n--)
+        *((unsigned char *)(s + n)) = 0;
 }
