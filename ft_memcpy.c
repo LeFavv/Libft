@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:44:09 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/29 11:59:45 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/30 10:36:36 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 	if (!dst && !src)
 		return (NULL);
 	while (n--)
-		    (*(unsigned char *)(dst + n)) = (*(unsigned char *)(src + n));
-
+		(*(unsigned char *)(dst + n)) = (*(unsigned char *)(src + n));
 	return (dst);
 }
 // #include <stdio.h>

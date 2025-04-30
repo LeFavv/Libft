@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:45:37 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/29 13:51:44 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/30 12:32:10 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,15 @@ int	search_end(char const *s1, char const *set)
 	return (i);
 }
 
+char	*return_if_one(char *result)
+{
+	result = malloc(1);
+	if (!result)
+		return (NULL);
+	result[0] = '\0';
+	return (result);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;
@@ -78,20 +87,20 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	if (!set)
 		return ((char *)s1);
+	res = NULL;
 	start = search_start(s1, set);
 	end = search_end(s1, set);
 	i = 0;
 	if (end < start)
-	{
-		res = malloc(1);
-		res[0] = 0;
-		return (res);
-	}
+		return (return_if_one(res));
 	res = malloc(sizeof(char) * ((end - start + 1) + 1));
 	if (!res)
 		return (NULL);
 	while (i < (end - start + 1))
-		res[i] = s1[start + i], i++;
+	{
+		res[i] = s1[start + i];
+		i++;
+	}
 	res[i] = 0;
 	return (res);
 }

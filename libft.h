@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:36:08 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/29 11:38:19 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/30 10:47:06 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memmove(void *dst, const void *src, size_t len);
-size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize);
-size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize);
+size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t size);
+size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t size);
 
 //partie 2
 char	*ft_substr(char const *s, unsigned int start, size_t len);

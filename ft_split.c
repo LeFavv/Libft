@@ -6,26 +6,17 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:44:45 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/29 11:03:21 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/30 14:24:40 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_char_is_sep(char i, char c);
 int		ft_count_word(char const *s, char c);
 char	*ft_malloc(char const *s, int start, int end);
 char	**ft_split(char const *s, char c);
 void	ft_free_all(char **tab, int last);
-
-int	ft_char_is_sep(char i, char c)
-{
-	if (i == c)
-		return (1);
-	if (i == '\0')
-		return (1);
-	return (0);
-}
+int		boucle_delocalisee(const char *s, int i, char c, int flag);
 
 int	ft_count_word(char const *s, char c)
 {
@@ -51,7 +42,6 @@ void	ft_free_all(char **tab, int last)
 	while (i < last)
 		free(tab[i++]);
 	free(tab);
-	return ;
 }
 
 char	*ft_malloc(char const *s, int start, int end)
@@ -74,6 +64,22 @@ char	*ft_malloc(char const *s, int start, int end)
 	return (res);
 }
 
+int	boucle_delocalisee(const char *s, int i, char c, int flag)
+{
+	if (flag == 0)
+	{
+		while (s[i] && s[i] == c)
+			i++;
+		return (i);
+	}
+	else
+	{
+		while (s[i] && !(s[i] == c))
+			i++;
+		return (i);
+	}
+}
+
 char	**ft_split(char const *s, char c)
 {
 	int		i_tab;
@@ -83,22 +89,22 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	tab = malloc(sizeof(char *) * (ft_count_word(s, c) + 1));
 	i_tab = 0;
+	i = 0;
+	tab = malloc(sizeof(char *) * (ft_count_word(s, c) + 1));
 	if (!tab)
 		return (NULL);
-	i = 0;
 	while (s[i])
 	{
-		while (s[i] && ft_char_is_sep(s[i], c))
-			i++;
+		i = boucle_delocalisee(s, i, c, 0);
 		start = i;
-		while (s[i] && !ft_char_is_sep(s[i], c))
-			i++;
-		tab[i_tab] = ft_malloc(s, start, i);
-		if (!tab[i_tab])
-			return (ft_free_all(tab, i_tab), NULL);
-		i_tab++;
+		i = boucle_delocalisee(s, i, c, 1);
+		if (start != i)
+		{
+			tab[i_tab++] = ft_malloc(s, start, i);
+			if (!tab[i_tab - 1])
+				return (ft_free_all(tab, i_tab), NULL);
+		}
 	}
 	return (tab[i_tab] = NULL, tab);
 }
@@ -106,14 +112,12 @@ char	**ft_split(char const *s, char c)
 // #include <stdio.h>
 // int main(void)
 // {
-//     char *test = "salut a tous";
+//     char *test = "salut a tous   t ";
 //     char c = ' ';
 //     char **tab = ft_split(test, c);
 //     int i = 0;
 //     while (tab[i])
 //         printf("%s\n", tab[i++]);
 //     ft_free_all(tab, i);
-//     free(tab);
-
 //     return (0);
 // } 

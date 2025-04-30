@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 13:54:37 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/29 10:22:41 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/04/30 10:34:28 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	while (i < n)
 	{
 		if ((*(unsigned char *)(s1 + i)) != (*(unsigned char *)(s2 + i)))
-			return ((*(unsigned char *)(s1 + i)) - (*(unsigned char *)(s2 + i)));
+			return ((*(unsigned char *)(s1 + i)) -
+				(*(unsigned char *)(s2 + i)));
 		i++;
 	}
 	return (0);
