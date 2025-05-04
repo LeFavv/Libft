@@ -6,13 +6,13 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:45:06 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/30 10:45:57 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/05/04 12:03:52 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	src_size;
 	size_t	dst_size;
