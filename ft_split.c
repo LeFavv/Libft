@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:44:45 by vafavard          #+#    #+#             */
-/*   Updated: 2025/05/01 21:39:11 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/05/04 10:33:48 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_count_word(char const *s, char c);
 char	*ft_malloc(char const *s, int start, int end);
 char	**ft_split(char const *s, char c);
 void	ft_free_all(char **tab, int last);
-int		boucle_delocalisee(const char *s, int i, char c, int flag);
+int		extern_loop(const char *s, int i, char c, int flag);
 
 int	ft_count_word(char const *s, char c)
 {
@@ -64,7 +64,7 @@ char	*ft_malloc(char const *s, int start, int end)
 	return (res);
 }
 
-int	boucle_delocalisee(const char *s, int i, char c, int flag)
+int	extern_loop(const char *s, int i, char c, int flag)
 {
 	if (flag == 0)
 	{
@@ -96,9 +96,9 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (s[i])
 	{
-		i = boucle_delocalisee(s, i, c, 0);
+		i = extern_loop(s, i, c, 0);
 		start = i;
-		i = boucle_delocalisee(s, i, c, 1);
+		i = extern_loop(s, i, c, 1);
 		if (start != i)
 		{
 			tab[i_tab++] = ft_malloc(s, start, i);

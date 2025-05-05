@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:44:21 by vafavard          #+#    #+#             */
-/*   Updated: 2025/04/28 13:56:50 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/05/05 10:52:46 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,3 @@ void	*ft_memset(void *str, int c, size_t n)
 	}
 	return ((void *)str);
 }
-
-// #include <stdio.h>
-// #include <string.h>
-
-// int main () 
-// {
-//    char str[50];
-
-//    strcpy(str, "Welcome to Tutorialspoint");
-//    puts(str);
-
-//    ft_memset(str, '#', 7);
-//    puts(str);
-//    return(0);
-// }
